@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Code, Database, Layout, Server, Mail, FileText, ExternalLink, ChevronRight, GitBranch, Linkedin } from 'lucide-react';
+import { Database, Layout, Server, Mail, FileText, ExternalLink, ChevronRight, GitBranch, Linkedin } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -83,7 +83,7 @@ const Portfolio = () => {
                     </div>
                     <div className="md:w-1/2 md:pl-8 order-3">
                       <div className="text-slate-400 font-medium">03/2021 – Present</div>
-                      <p className="text-slate-300 mt-2">Pursuing a Bachelor's degree in Computer Science with focus on software development and system architecture.</p>
+                      <p className="text-slate-300 mt-2">Pursuing a Bachelor&apos;s degree in Computer Science with focus on software development and system architecture.</p>
                     </div>
                   </div>
                   
@@ -339,7 +339,7 @@ const Portfolio = () => {
                       </div>
                       <p className="text-slate-300">Real-time chat application with automatic message translation using AI language models.</p>
                       
-                      <p className="text-slate-300 mt-2">This multilingual chat application breaks down language barriers by providing real-time translation between users speaking different languages. The app detects the language of incoming messages and automatically translates them to the recipient's preferred language, with an option to view the original text. Users can create chat rooms, upload pictures, and see when messages are read.</p>
+                      <p className="text-slate-300 mt-2">This multilingual chat application breaks down language barriers by providing real-time translation between users speaking different languages. The app detects the language of incoming messages and automatically translates them to the recipient&apos;s preferred language, with an option to view the original text. Users can create chat rooms, upload pictures, and see when messages are read.</p>
                       
                       <div className="space-y-3 mt-4">
                         <h4 className="font-semibold">Key Features:</h4>
@@ -446,7 +446,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-8">
                 <p className="text-xl text-slate-300">
-                  I'm currently open to new opportunities in full-stack development roles. Feel free to reach out!
+                  I&apos;m currently open to new opportunities in full-stack development roles. Feel free to reach out!
                 </p>
                 
                 <div className="space-y-4">
