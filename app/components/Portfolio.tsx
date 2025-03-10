@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { Database, Layout, Server, Mail, FileText, ExternalLink, ChevronRight, GitBranch, Linkedin, Github } from 'lucide-react';
+import { Database, Layout, Server, Mail, FileText, ExternalLink, GitBranch, Linkedin, Github } from 'lucide-react';
+import Image from 'next/image';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -103,7 +104,7 @@ const Portfolio = () => {
             <div className="w-full h-full rounded-full overflow-hidden bg-slate-900 p-2">
               {/* Image */}
               <div className="w-full h-full rounded-full overflow-hidden">
-                <img src="/me.jpg" alt="Devansh Kumar" className="w-full h-full object-cover" />
+                <Image src="/me.jpg" alt="Devansh Kumar" className="w-full h-full object-cover" width={300} height={300} />
               </div>
             </div>
           </div>
@@ -543,7 +544,7 @@ const Portfolio = () => {
                 <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
                 <div className="space-y-6">
                   <p className="text-slate-300">
-                    I'm always interested in hearing about new projects and opportunities. If you'd like to connect, click the button below to send me an email directly.
+                    I&apos;m always interested in hearing about new projects and opportunities. If you&apos;d like to connect, click the button below to send me an email directly.
                   </p>
                   
                   <button 
