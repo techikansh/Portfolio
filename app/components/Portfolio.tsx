@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from 'react';
-import { Database, Layout, Server, Mail, FileText, ExternalLink, ChevronRight, GitBranch, Linkedin } from 'lucide-react';
+import { Database, Layout, Server, Mail, FileText, ExternalLink, ChevronRight, GitBranch, Linkedin, Github } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSection, setActiveSection] = useState('experience');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white flex flex-col">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-700">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -29,39 +29,101 @@ const Portfolio = () => {
       </nav>
 
       {/* Content */}
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 py-16 flex-grow">
         {/* Home Page with Hero, Skills, Experience, and Projects */}
         {activeTab === 'home' && (
           <div className="space-y-24">
-            {/* Hero Section */}
-            <section className="flex flex-col md:flex-row items-center justify-between gap-12">
-              <div className="md:w-1/2 space-y-6">
-                <h1 className="text-4xl md:text-6xl font-bold">
-                  Full-Stack Developer <span className="text-teal-400">with a focus on scalable solutions</span>
-                </h1>
-                <p className="text-xl text-slate-300">
-                  Building modern applications with Spring Boot, React, and cloud technologies
-                </p>
-                <div className="flex gap-4">
-                  <a 
-                    href="#projects"
-                    className="px-6 py-3 bg-teal-500 hover:bg-teal-600 rounded-md flex items-center gap-2 transition">
-                    View Projects <ChevronRight size={18} />
-                  </a>
-                  <button 
-                    onClick={() => setActiveTab('contact')}
-                    className="px-6 py-3 border border-slate-600 hover:bg-slate-800 rounded-md transition">
-                    Contact Me
-                  </button>
-                </div>
-              </div>
-              <div className="md:w-1/2 flex justify-center">
-                <div className="w-64 h-64 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center text-4xl font-bold">
-                  DK
-                </div>
-              </div>
-            </section>
 
+{/* Hero Section - Reimagined Design */}
+<section className="relative py-16 md:py-24">
+  {/* Background Elements */}
+  <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-teal-500/10 to-transparent"></div>
+  <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-tr-full"></div>
+  
+  {/* Content Container */}
+  <div className="container mx-auto relative z-10">
+    <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+      {/* Left Content - Text and CTA */}
+      <div className="md:w-7/12 space-y-8 pl-2">
+        <div className="inline-block px-4 py-2 bg-slate-800 rounded-full mb-2">
+          <span className="text-teal-400 font-medium">Full-Stack Developer</span>
+        </div>
+        
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+          Crafting <span className="text-teal-400">modern</span> digital experiences
+        </h1>
+        
+        <p className="text-xl text-slate-300 max-w-2xl">
+          I build scalable applications with Spring Boot, React, and cloud technologies, 
+          focusing on clean architecture and exceptional user experience.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 pt-2">
+          <button 
+            onClick={() => {
+              setActiveSection('experience');
+              const element = document.getElementById('experience-projects');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="px-8 py-4 bg-teal-500 hover:bg-teal-600 rounded-lg text-white font-medium transition flex items-center justify-center gap-2">
+            Explore My Work
+          </button>
+          <button 
+            onClick={() => setActiveTab('contact')}
+            className="px-8 py-4 border border-slate-600 hover:border-teal-400 rounded-lg text-slate-200 font-medium transition flex items-center justify-center gap-2">
+            Get In Touch
+          </button>
+        </div>
+        
+        {/* Tech Stack Pills */}
+        <div className="pt-4">
+          <p className="text-slate-400 mb-3">Tech Stack:</p>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">Spring Boot</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">C# / CSOM</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">PowerShell</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">Node.js</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">Express</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">MySQL</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">MongoDB</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">React</span>
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">TypeScript</span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Right Content - Profile Image + Decorative Elements */}
+      <div className="md:w-5/12 relative">
+        <div className="relative z-10">
+          {/* Outer Border with Gradient */}
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 p-1 mx-auto">
+            {/* Inner Content */}
+            <div className="w-full h-full rounded-full overflow-hidden bg-slate-900 p-2">
+              {/* Image */}
+              <div className="w-full h-full rounded-full overflow-hidden">
+                <img src="/me.jpg" alt="Devansh Kumar" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Decorative Elements */}
+          <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-xl"></div>
+          <div className="absolute -top-4 -left-4 w-20 h-20 bg-teal-500/20 rounded-full blur-xl"></div>
+          
+          {/* Professional Experience Badge */}
+          <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 shadow-lg">
+            <div className="text-center">
+              <span className="text-xl font-bold text-teal-400">Professional</span>
+              <p className="text-sm text-slate-300">Development<br />Experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
             {/* Education Timeline Section */}
             <section className="py-12">
               <h2 className="text-3xl font-bold mb-12">Education</h2>
@@ -464,12 +526,12 @@ const Portfolio = () => {
                   </div>
                   <div className="flex items-center gap-4">
                     <Linkedin className="text-teal-400" size={24} />
-                    <a href="#" className="text-slate-300 hover:text-teal-400 transition">
+                    <a href="https://www.linkedin.com/in/devansh-kumar-aa1588254/" className="text-slate-300 hover:text-teal-400 transition">
                       LinkedIn Profile
                     </a>
                   </div>
                   <div className="flex items-center gap-4">
-                    <GitBranch className="text-teal-400" size={24} />
+                    <Github className="text-teal-400" size={24} />
                     <a href="https://github.com/techikansh" className="text-slate-300 hover:text-teal-400 transition">
                       github.com/techikansh
                     </a>
@@ -478,38 +540,30 @@ const Portfolio = () => {
               </div>
               
               <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-                <form className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-slate-300 mb-2">Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      className="w-full bg-slate-700 border border-slate-600 rounded-md p-3 text-white focus:border-teal-500 focus:outline-none" 
-                      placeholder="Your name" 
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-slate-300 mb-2">Email</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      className="w-full bg-slate-700 border border-slate-600 rounded-md p-3 text-white focus:border-teal-500 focus:outline-none" 
-                      placeholder="Your email" 
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-slate-300 mb-2">Message</label>
-                    <textarea 
-                      id="message" 
-                      rows={5} 
-                      className="w-full bg-slate-700 border border-slate-600 rounded-md p-3 text-white focus:border-teal-500 focus:outline-none" 
-                      placeholder="Your message"></textarea>
-                  </div>
-                  <button className="px-6 py-3 bg-teal-500 hover:bg-teal-600 rounded-md transition w-full">
-                    Send Message
+                <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
+                <div className="space-y-6">
+                  <p className="text-slate-300">
+                    I'm always interested in hearing about new projects and opportunities. If you'd like to connect, click the button below to send me an email directly.
+                  </p>
+                  
+                  <button 
+                    onClick={() => {
+                      const email = 'kumar.devansh.cse@gmail.com';
+                      const subject = 'Inquiry from Portfolio Website';
+                      const body = 'Hello Devansh,\n\nI visited your portfolio website and would like to connect with you regarding...';
+                      
+                      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    }}
+                    className="px-6 py-4 bg-teal-500 hover:bg-teal-600 rounded-md transition w-full flex justify-center items-center gap-3"
+                  >
+                    <Mail size={20} />
+                    Send Me an Email
                   </button>
-                </form>
+                  
+                  <p className="text-slate-400 text-sm mt-4">
+                    This will open your default email client with my email address and a subject line already filled in.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -517,7 +571,7 @@ const Portfolio = () => {
       </main>
       
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-8">
+      <footer className="bg-slate-900 border-t border-slate-800 py-8 mt-auto">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-slate-400 mb-4 md:mb-0">
@@ -525,9 +579,9 @@ const Portfolio = () => {
             </div>
             <div className="flex gap-6">
               <a href="https://github.com/techikansh" className="text-slate-400 hover:text-teal-400 transition">
-                <GitBranch size={20} />
+                <Github size={20} />
               </a>
-              <a href="#" className="text-slate-400 hover:text-teal-400 transition">
+              <a href="https://www.linkedin.com/in/devansh-kumar-aa1588254/" className="text-slate-400 hover:text-teal-400 transition">
                 <Linkedin size={20} />
               </a>
               <a href="mailto:kumar.devansh.cse@gmail.com" className="text-slate-400 hover:text-teal-400 transition">
