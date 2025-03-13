@@ -25,7 +25,20 @@ const Portfolio = () => {
               Contact
             </button>
           </div>
-          <button className="px-4 py-2 bg-teal-500 hover:bg-teal-600 rounded-md transition">Resume</button>
+          <button 
+            onClick={() => {
+              setActiveTab('home');
+              setActiveSection('projects');
+              setTimeout(() => {
+                const element = document.getElementById('experience-projects');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
+            }}
+            className="px-4 py-2 bg-teal-500 hover:bg-teal-600 rounded-md transition">
+            Projects
+          </button>
         </div>
       </nav>
 
@@ -354,7 +367,7 @@ const Portfolio = () => {
                   {/* Project 1 */}
                   <div className="bg-slate-800 rounded-lg overflow-hidden border border-slate-700 hover:border-teal-500 transition">
                     <div className="h-48 bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center">
-                      <h3 className="text-xl font-bold">ProjectWise - Project Management System</h3>
+                      <h3 className="text-xl font-bold">ProjectFlow - Project Management System</h3>
                     </div>
                     <div className="p-6 space-y-4">
                       <div className="flex flex-wrap gap-2">
@@ -378,12 +391,18 @@ const Portfolio = () => {
                         </ul>
                       </div>
                       <div className="flex gap-4">
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
+                        <a href="https://github.com/techikansh/Project-Management-System-API" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
                           <GitBranch size={16} /> Code
-                        </button>
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
+                        </a>
+                        <a href="https://kanban-board-opal-three.vercel.app/" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
                           <ExternalLink size={16} /> Live Demo
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -415,12 +434,12 @@ const Portfolio = () => {
                         </ul>
                       </div>
                       <div className="flex gap-4">
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
-                          <GitBranch size={16} /> Code
-                        </button>
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
-                          <ExternalLink size={16} /> Live Demo
-                        </button>
+                        <a href="https://github.com/techikansh/Mehrsprachige-Chat-App" 
+                             target="_blank" 
+                             rel="noopener noreferrer" 
+                             className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
+                            <GitBranch size={16} /> Code
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -452,12 +471,18 @@ const Portfolio = () => {
                         </ul>
                       </div>
                       <div className="flex gap-4">
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
+                        <a href="https://github.com/techikansh/Real-Estate-Marketplace" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
                           <GitBranch size={16} /> Code
-                        </button>
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
+                        </a>
+                        <a href="https://real-estate-marketplace-client.onrender.com/" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
                           <ExternalLink size={16} /> Live Demo
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -489,9 +514,12 @@ const Portfolio = () => {
                         </ul>
                       </div>
                       <div className="flex gap-4">
-                        <button className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
+                        <a href="https://github.com/techikansh/Blogging.App.API" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="flex items-center gap-2 text-teal-400 hover:text-teal-300">
                           <GitBranch size={16} /> Code
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
