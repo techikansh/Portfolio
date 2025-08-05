@@ -68,7 +68,7 @@ const Portfolio = () => {
         </h1>
         
         <p className="text-xl text-slate-300 max-w-2xl">
-          I build scalable applications with Spring Boot, React, and cloud technologies, 
+          I build scalable applications with Spring Java, Boot, React, and cloud technologies, 
           focusing on clean architecture and exceptional user experience.
         </p>
         
@@ -95,6 +95,7 @@ const Portfolio = () => {
         <div className="pt-4">
           <p className="text-slate-400 mb-3">Tech Stack:</p>
           <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">Java</span>
             <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">Spring Boot</span>
             <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">C# / CSOM</span>
             <span className="px-3 py-1 bg-slate-800 border border-slate-700 rounded-full text-sm">PowerShell</span>
