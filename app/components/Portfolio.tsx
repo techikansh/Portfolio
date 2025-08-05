@@ -68,7 +68,7 @@ const Portfolio = () => {
         </h1>
         
         <p className="text-xl text-slate-300 max-w-2xl">
-          I build scalable applications with Spring Java, Boot, React, and cloud technologies, 
+          I build scalable applications with Java, Spring Boot, React, and cloud technologies, 
           focusing on clean architecture and exceptional user experience.
         </p>
         
