@@ -373,6 +373,7 @@ const Portfolio = () => {
                     <div className="p-6 space-y-4">
                       <div className="flex flex-wrap gap-2">
                         <span className="px-2 py-1 bg-slate-700 rounded-md text-xs">React</span>
+                        <span className="px-2 py-1 bg-slate-700 rounded-md text-xs">Java</span>
                         <span className="px-2 py-1 bg-slate-700 rounded-md text-xs">Spring Boot</span>
                         <span className="px-2 py-1 bg-slate-700 rounded-md text-xs">MySQL</span>
                         <span className="px-2 py-1 bg-slate-700 rounded-md text-xs">JWT</span>
@@ -384,7 +385,7 @@ const Portfolio = () => {
                       <div className="space-y-3 mt-4">
                         <h4 className="font-semibold">Key Features:</h4>
                         <ul className="space-y-1 text-slate-300 pl-5 list-disc">
-                          <li>RESTful API with Spring Boot</li>
+                          <li>RESTful API with Java Spring Boot</li>
                           <li>JWT Authentication & Role-based access</li>
                           <li>Interactive Kanban boards with drag-and-drop</li>
                           <li>Real-time search & date-based filtering</li>
