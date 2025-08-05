@@ -159,7 +159,7 @@ const Portfolio = () => {
                       <div className="w-4 h-4 rounded-full bg-slate-900"></div>
                     </div>
                     <div className="md:w-1/2 md:pl-8 order-3">
-                      <div className="text-slate-400 font-medium">03/2021 – Present</div>
+                      <div className="text-slate-400 font-medium">03/2021 – 04/2025</div>
                       <p className="text-slate-300 mt-2">Pursuing a Bachelor&apos;s degree in Computer Science with focus on software development and system architecture.</p>
                     </div>
                   </div>
