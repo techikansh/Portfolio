@@ -1,11 +1,79 @@
 "use client";
 import React, { useState } from 'react';
-import { Database, Layout, Server, Mail, FileText, ExternalLink, GitBranch, Linkedin, Github } from 'lucide-react';
+import { Database, Layout, Server, Mail, FileText, ExternalLink, GitBranch, Linkedin, Github, Briefcase, Calendar, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [activeSection, setActiveSection] = useState('experience');
+
+  // Skills data for Technical Expertise section
+  const skillGroups = {
+    backend: [
+      'Java',
+      'Spring Boot',
+      'Spring Security',
+      'JPA',
+      'JUnit',
+      'C# (.NET)',
+      'Python (FastAPI)',
+      'Node.js',
+      'Express.js',
+      'Jakarta EE',
+    ],
+    frontend: [
+      'React',
+      'React Router',
+      'Redux Toolkit',
+      'TypeScript',
+      'JavaScript',
+      'HTML',
+      'CSS',
+      'Tailwind CSS',
+    ],
+    databases: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'SQLite'],
+    devtest: ['REST API', 'Swagger/OpenAPI', 'Postman', 'Unit Testing', 'CI/CD', 'GitHub Actions'],
+    tools: [
+      'Git',
+      'Jira',
+      'Agile-Scrum',
+      'MS Office',
+      'Visual Studio',
+      'Cursor',
+      'Claude',
+      'IntelliJ',
+      'PyCharm',
+    ],
+    languages: ['Deutsch – C1', 'Englisch – C1'],
+  } as const;
+
+  const SkillCard: React.FC<{ title: string; icon: React.ReactNode; items: readonly string[] }> = ({ title, icon, items }) => (
+    <div className="relative overflow-hidden rounded-xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(600px 200px at 0% 0%, rgba(45, 212, 191, 0.08), transparent 60%), radial-gradient(600px 200px at 100% 100%, rgba(59, 130, 246, 0.07), transparent 60%)',
+        }}
+      />
+      <div className="relative p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-9 h-9 rounded-lg bg-teal-500/10 border border-teal-500/30 flex items-center justify-center">{icon}</div>
+          <h3 className="text-lg font-semibold text-teal-300">{title}</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {items.map((label) => (
+            <span
+              key={label}
+              className="px-3 py-1 rounded-full text-sm bg-slate-800/70 border border-slate-700 text-slate-200 hover:border-teal-500/40 hover:text-teal-200 transition"
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white flex flex-col">
@@ -214,94 +282,17 @@ const Portfolio = () => {
 
             {/* Skills Section */}
             <section className="py-12">
-              <h2 className="text-3xl font-bold mb-12">Technical Expertise</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-teal-500 transition">
-                  <div className="flex items-center gap-4 mb-5">
-                    <Server className="text-teal-400" size={24} />
-                    <h3 className="text-xl font-bold">Backend Development</h3>
-                  </div>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      Java Spring Boot
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      C# with CSOM
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      PowerShell
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      Node.js/Express
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      Python FastAPI
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-teal-500 transition">
-                  <div className="flex items-center gap-4 mb-5">
-                    <Layout className="text-teal-400" size={24} />
-                    <h3 className="text-xl font-bold">Frontend Development</h3>
-                  </div>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      React.js
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      Redux Toolkit
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      TypeScript
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      HTML/CSS/Tailwind
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      JavaScript
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-teal-500 transition">
-                  <div className="flex items-center gap-4 mb-5">
-                    <Database className="text-teal-400" size={24} />
-                    <h3 className="text-xl font-bold">Database & Tools</h3>
-                  </div>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      MySQL
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      MongoDB
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      Git & GitHub
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      Jira & Agile Scrum
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400"></div>
-                      RESTful API Design
-                    </li>
-                  </ul>
-                </div>
+              <div className="mb-8 flex items-end justify-between">
+                <h2 className="text-3xl font-bold">Technical Expertise</h2>
+                <div className="text-sm text-slate-400">A snapshot of my daily toolbox</div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <SkillCard title="Backend" icon={<Server className="text-teal-400" size={18} />} items={skillGroups.backend} />
+                <SkillCard title="Frontend" icon={<Layout className="text-teal-400" size={18} />} items={skillGroups.frontend} />
+                <SkillCard title="Databases" icon={<Database className="text-teal-400" size={18} />} items={skillGroups.databases} />
+                <SkillCard title="Development & Test" icon={<CheckCircle className="text-teal-400" size={18} />} items={skillGroups.devtest} />
+                <SkillCard title="Tools" icon={<GitBranch className="text-teal-400" size={18} />} items={skillGroups.tools} />
+                <SkillCard title="Languages" icon={<FileText className="text-teal-400" size={18} />} items={skillGroups.languages} />
               </div>
             </section>
 
@@ -325,46 +316,107 @@ const Portfolio = () => {
               {activeSection === 'experience' && (
                 <div className="space-y-12">
                   {/* KFW */}
-                  <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                    <div className="flex flex-col md:flex-row justify-between mb-4">
-                      <h3 className="text-xl font-bold text-teal-400">KFW</h3>
-                      <div className="text-slate-400">08/2023 – 07/2024</div>
+                  <div className="relative overflow-hidden rounded-lg border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900">
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(600px 200px at 0% 0%, rgba(45, 212, 191, 0.08), transparent 60%), radial-gradient(600px 200px at 100% 100%, rgba(59, 130, 246, 0.07), transparent 60%)' }}></div>
+                    <div className="relative p-6">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-md bg-teal-500/10 border border-teal-500/30 flex items-center justify-center">
+                            <Briefcase className="text-teal-400" size={18} />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-teal-400">KFW</h3>
+                            <div className="flex flex-wrap items-center gap-2 mt-1">
+                              <span className="px-2 py-0.5 text-xs rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300">Software Engineer</span>
+                              <span className="px-2 py-0.5 text-xs rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300">Intern</span>
+                              <span className="px-2 py-0.5 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300">Working Student</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-400">
+                          <Calendar size={16} />
+                          <span>08/2023 – 07/2024</span>
+                        </div>
+                      </div>
+                      <ul className="space-y-2 text-slate-300 pl-5 list-disc marker:text-teal-400">
+                        <li>Collaborated closely with business units to gather requirements and translate them into technical solutions.</li>
+                        <li>Designed and developed a complete REST API in C# with secure JWT authentication, implementing full CRUD operations and optimizing the service layer for higher performance.</li>
+                        <li>Leveraged asynchrony and paging to improve performance with large datasets.</li>
+                        <li>Built PowerShell scripts to automate SharePoint processes and file operations (e.g., data synchronization, data encryption).</li>
+                        <li>Fixed frontend bugs in React + TypeScript and wrote unit tests to ensure functionality.</li>
+                        <li>Conducted code reviews to ensure code quality and adherence to best practices.</li>
+                        <li>Created and executed test cases in HP-ALM to ensure quality of new features during release preparations.</li>
+                        <li>Documented architecture and testing processes to ensure transparency, traceability, and release quality.</li>
+                      </ul>
+                      <div className="space-y-3 mt-5">
+                        <h4 className="font-semibold flex items-center gap-2"><CheckCircle size={16} className="text-teal-400" /> Tools</h4>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">PowerShell</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">C#</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">.NET</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">REST API</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">JWT</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">React.js</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">TypeScript</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Swagger</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Postman</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">HP ALM</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Jira</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Confluence</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Git</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Scrum</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-4 mb-4">
-                      <div className="text-slate-300 font-medium">Werkstudent (08/2023 – 03/2024)</div>
-                      <div className="text-slate-300 font-medium">Praktikant (04/2024 – 07/2024)</div>
-                    </div>
-                    <ul className="space-y-2 text-slate-300 pl-5 list-disc">
-                      <li>Developed PowerShell scripts for SharePoint process automation and data operations</li>
-                      <li>Developed a powerful C# REST API with JWT authentication that replaced outdated Nintex workflows, doubling backend speed and substantially improving system stability</li>
-                      <li>Created an efficient service layer with streamlined CRUD operations and versatile utility functions, enhancing maintainability and supporting future scaling</li>
-                      <li>Wrote unit tests and conducted code reviews to ensure quality</li>
-                      <li>Fixed frontend bugs with React.js and TypeScript</li>
-                      <li>Created and executed test cases in HP-ALM for quality assurance</li>
-                    </ul>
                   </div>
                   
                   {/* TCS */}
-                  <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                    <div className="flex flex-col md:flex-row justify-between mb-4">
-                      <h3 className="text-xl font-bold text-teal-400">TCS - Tata Consultancy Services</h3>
-                      <div className="text-slate-400">12/2022 – 06/2023</div>
+                  <div className="relative overflow-hidden rounded-lg border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900">
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(600px 200px at 0% 0%, rgba(16, 185, 129, 0.08), transparent 60%), radial-gradient(600px 200px at 100% 100%, rgba(168, 85, 247, 0.07), transparent 60%)' }}></div>
+                    <div className="relative p-6">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-md bg-teal-500/10 border border-teal-500/30 flex items-center justify-center">
+                            <Briefcase className="text-teal-400" size={18} />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold text-teal-400">TCS - Tata Consultancy Services</h3>
+                            <div className="flex flex-wrap items-center gap-2 mt-1">
+                              <span className="px-2 py-0.5 text-xs rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300">Desktop Administrator</span>
+                              <span className="px-2 py-0.5 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300">Working Student</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-400">
+                          <Calendar size={16} />
+                          <span>12/2022 – 06/2023</span>
+                        </div>
+                      </div>
+                      <ul className="space-y-2 text-slate-300 pl-5 list-disc marker:text-teal-400">
+                        <li>Installed, configured, and maintained hardware and software components, including operating systems, networks, and peripherals.</li>
+                        <li>Diagnosed and resolved technical issues and handled support requests.</li>
+                        <li>Provided technical support and consulting to employees on IT-related questions.</li>
+                      </ul>
+                      <div className="space-y-3 mt-5">
+                        <h4 className="font-semibold flex items-center gap-2"><CheckCircle size={16} className="text-teal-400" /> Tools</h4>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Python</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">PowerShell</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Windows</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Linux</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Hardware/Software Installation</span>
+                          <span className="px-2 py-1 bg-slate-700/70 border border-slate-600 rounded-md text-xs">Troubleshooting</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="mb-4">
-                      <div className="text-slate-300 font-medium">Werkstudent</div>
-                    </div>
-                    <ul className="space-y-2 text-slate-300 pl-5 list-disc">
-                      <li>Installation, configuration and maintenance of hardware and software components</li>
-                      <li>Diagnosis and resolution of technical issues and support requests</li>
-                      <li>Technical support and consulting for employees on IT-related questions</li>
-                    </ul>
                   </div>
                 </div>
               )}
               
               {/* Projects Content */}
               {activeSection === 'projects' && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Project 1 */}
                   <div className="bg-slate-800 rounded-lg overflow-hidden border border-slate-700 hover:border-teal-500 transition">
                     <div className="h-48 bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center">
@@ -524,6 +576,18 @@ const Portfolio = () => {
                         </a>
                       </div>
                     </div>
+                  </div>
+                  </div>
+                  <div className="flex justify-center">
+                    <a
+                      href="https://github.com/techikansh?tab=repositories"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 text-white font-medium shadow-lg hover:shadow-teal-500/30 transition"
+                    >
+                      <span>View more projects</span>
+                      <ExternalLink size={18} className="transition-transform group-hover:translate-x-0.5" />
+                    </a>
                   </div>
                 </div>
               )}
