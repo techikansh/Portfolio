@@ -41,12 +41,12 @@ const skillGroups = {
 } as const;
 
 const SkillCard: React.FC<{ title: string; icon: React.ReactNode; items: readonly string[] }> = ({ title, icon, items }) => (
-  <div className="relative overflow-hidden rounded-xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900">
+  <div className="relative overflow-hidden rounded-xl border border-neutral-700 bg-gradient-to-br from-neutral-800 to-neutral-900">
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
         background:
-          'radial-gradient(600px 200px at 0% 0%, rgba(45, 212, 191, 0.08), transparent 60%), radial-gradient(600px 200px at 100% 100%, rgba(59, 130, 246, 0.07), transparent 60%)',
+          'radial-gradient(600px 200px at 0% 0%, rgba(45, 212, 191, 0.08), transparent 60%), radial-gradient(600px 200px at 100% 100%, rgba(168, 85, 247, 0.07), transparent 60%)',
       }}
     />
     <div className="relative p-6">
@@ -58,7 +58,7 @@ const SkillCard: React.FC<{ title: string; icon: React.ReactNode; items: readonl
         {items.map((label) => (
           <span
             key={label}
-            className="px-3 py-1 rounded-full text-sm bg-slate-800/70 border border-slate-700 text-slate-200 hover:border-teal-500/40 hover:text-teal-200 transition"
+            className="px-3 py-1 rounded-full text-sm bg-neutral-800/70 border border-neutral-700 text-neutral-200 hover:border-teal-500/40 hover:text-teal-200 transition"
           >
             {label}
           </span>
@@ -73,7 +73,7 @@ const SkillsSection: React.FC = () => {
     <section className="py-12">
       <div className="mb-8 flex items-end justify-between">
         <h2 className="text-3xl font-bold">Technical Expertise</h2>
-        <div className="text-sm text-slate-400">A snapshot of my daily toolbox</div>
+        <div className="text-sm text-neutral-400">A snapshot of my daily toolbox</div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         <SkillCard title="Backend" icon={<Server className="text-teal-400" size={18} />} items={skillGroups.backend} />
@@ -88,4 +88,3 @@ const SkillsSection: React.FC = () => {
 };
 
 export default SkillsSection;
-

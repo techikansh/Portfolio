@@ -14,7 +14,7 @@ const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('experience');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-950 to-neutral-900 text-white flex flex-col">
       {/* Navigation */}
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} setActiveSection={setActiveSection} />
 
@@ -30,15 +30,15 @@ const Portfolio = () => {
             {/* Experience and Projects Tabs Section */}
             <section className="py-12" id="experience-projects">
               {/* Tab Navigation */}
-              <div className="flex justify-center mb-12 border-b border-slate-700">
+              <div className="flex justify-center mb-12 border-b border-neutral-700">
                 <button 
                   onClick={() => setActiveSection('experience')}
-                  className={`px-6 py-3 font-medium text-lg ${activeSection === 'experience' ? 'text-teal-400 border-b-2 border-teal-400' : 'text-slate-300 hover:text-teal-300'} transition`}>
+                  className={`px-6 py-3 font-medium text-lg ${activeSection === 'experience' ? 'text-teal-400 border-b-2 border-teal-400' : 'text-neutral-300 hover:text-teal-300'} transition`}>
                   Professional Experience
                 </button>
                 <button 
                   onClick={() => setActiveSection('projects')}
-                  className={`px-6 py-3 font-medium text-lg ${activeSection === 'projects' ? 'text-teal-400 border-b-2 border-teal-400' : 'text-slate-300 hover:text-teal-300'} transition`}>
+                  className={`px-6 py-3 font-medium text-lg ${activeSection === 'projects' ? 'text-teal-400 border-b-2 border-teal-400' : 'text-neutral-300 hover:text-teal-300'} transition`}>
                   My Projects
                 </button>
               </div>

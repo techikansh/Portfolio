@@ -9,42 +9,42 @@ const ContactSection: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="space-y-8">
-          <p className="text-xl text-slate-300">
+          <p className="text-xl text-neutral-300">
             I&apos;m currently open to new opportunities in full-stack development roles. Feel free to reach out!
           </p>
           
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <Mail className="text-teal-400" size={24} />
-              <a href="mailto:kumar.devansh.cse@gmail.com" className="text-slate-300 hover:text-teal-400 transition">
+              <a href="mailto:kumar.devansh.cse@gmail.com" className="text-neutral-300 hover:text-teal-400 transition">
                 kumar.devansh.cse@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-4">
               <FileText className="text-teal-400" size={24} />
-              <a href="#" className="text-slate-300 hover:text-teal-400 transition">
+              <a href="#" className="text-neutral-300 hover:text-teal-400 transition">
                 Download Resume
               </a>
             </div>
             <div className="flex items-center gap-4">
               <Linkedin className="text-teal-400" size={24} />
-              <a href="https://www.linkedin.com/in/devansh-kumar-aa1588254/" className="text-slate-300 hover:text-teal-400 transition">
+              <a href="https://www.linkedin.com/in/devansh-kumar-aa1588254/" className="text-neutral-300 hover:text-teal-400 transition">
                 LinkedIn Profile
               </a>
             </div>
             <div className="flex items-center gap-4">
               <Github className="text-teal-400" size={24} />
-              <a href="https://github.com/techikansh" className="text-slate-300 hover:text-teal-400 transition">
+              <a href="https://github.com/techikansh" className="text-neutral-300 hover:text-teal-400 transition">
                 github.com/techikansh
               </a>
             </div>
           </div>
         </div>
         
-        <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+        <div className="bg-neutral-800 p-6 rounded-lg border border-neutral-700">
           <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
           <div className="space-y-6">
-            <p className="text-slate-300">
+            <p className="text-neutral-300">
               I&apos;m always interested in hearing about new projects and opportunities. If you&apos;d like to connect, click the button below to send me an email directly.
             </p>
             
@@ -62,7 +62,7 @@ const ContactSection: React.FC = () => {
               Send Me an Email
             </button>
             
-            <p className="text-slate-400 text-sm mt-4">
+            <p className="text-neutral-400 text-sm mt-4">
               This will open your default email client with my email address and a subject line already filled in.
             </p>
           </div>
@@ -73,4 +73,3 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
-
